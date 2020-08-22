@@ -8,7 +8,7 @@ En cada rama del repositorio se encuentra una plantilla de proyecto, y en la mis
 1. [Django Rest Framework](#DRF)
 
 
-## [DRF](https://github.com/percept-io/templates/tree/test)
+## [DRF](https://github.com/percept-io/templates/tree/drf)
 
 La plantilla de Django Rest Framework es útil para projectos con múltiples _CRUDs_, permite generar endpoints de manera muy rápida y fácil de probar.
 ### Features
