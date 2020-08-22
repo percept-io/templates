@@ -10,15 +10,17 @@ Para utilizar esta plantilla, ejecuta los siguientes comandos:
 ```bash
 python -m venv <ENV_NAME>
 source <ENV_NAME>/bin/activate
+# En windows: env/Scripts/activate
 pip install django
 django-admin startproject --template=https://github.com/percept-io/templates/archive/drf.zip <PROJECT_NAME>
 ```
 
 Con esto, se cuenta con un proyecto de Django Rest Framework, utilizando un modelo _Custom_ de usuario, para que sea más fácil modificarlo, y Autenticación por JWT.
 
-Para terminar de configurar, es necesario agregar algunas variables de ambiente al archivo _app/.env_, así cómo crear la base de datos en postgres.
+Para terminar de configurar, es necesario modificar algunas variables de ambiente al archivo _app/.env_, así cómo crear la base de datos en postgres.
 
 ```
+SECRET_KEY=<RANDOM_STRING>
 DB_NAME=<DATABASE_NAME>
 DB_USER=<DATABASE_USER>
 DB_PWD=<DATABASE_USER_PASSWORD>
