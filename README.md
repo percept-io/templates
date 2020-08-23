@@ -2,8 +2,14 @@
 
 La plantilla de Django Rest Framework es útil para projectos con múltiples _CRUDs_, permite generar endpoints de manera muy rápida y fácil de probar.
 ### Features
+* RESTful API Backend
 * Postgres configurado
 * Autenticación por JWT
+* Signup de usuarios
+  * Verificación de correos
+  * Cambio de contraseña
+  * Consultar perfil
+  * Cambio de correo
 
 # Uso
 Para utilizar esta plantilla, ejecuta los siguientes comandos:
@@ -24,6 +30,7 @@ SECRET_KEY=<RANDOM_STRING>
 DB_NAME=<DATABASE_NAME>
 DB_USER=<DATABASE_USER>
 DB_PWD=<DATABASE_USER_PASSWORD>
+CLIENT_BASE_URL=<FRONTEND_URL>
 ```
 
 Teniendo las configuraciones necesarias, es necesario instalar las dependencias, y ejecutar las migraciones pendientes:

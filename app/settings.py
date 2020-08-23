@@ -23,6 +23,7 @@ env = environ.Env(
     ALLOWED_HOSTS=(str, "localhost,127.0.0.1"),
     CORS_ORIGIN_ALLOW_ALL=(bool, False),
     CORS_ORIGIN_WHITELIST=(str, "localhost,127.0.0.1"),
+    CLIENT_BASE_URL=(str, "http://localhost:3000")
 )
 root = environ.Path(__file__) - 1
 environ.Env.read_env(root() + "/.env")
@@ -59,10 +60,16 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = ["rest_framework", "rest_framework_simplejwt"]
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "rest_framework_simplejwt",
+    "rest_registration"
+]
 
 # Register project Apps here
-PROJECT_APPS = ["users"]
+PROJECT_APPS = [
+    "users"
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
@@ -153,5 +160,15 @@ REST_FRAMEWORK = {
     )
 }
 
+REST_REGISTRATION = {
+    'REGISTER_VERIFICATION_URL': f'{env("CLIENT_BASE_URL")}/verify-user/',
+    'RESET_PASSWORD_VERIFICATION_URL': f'{env("CLIENT_BASE_URL")}/reset-password/',
+    'REGISTER_EMAIL_VERIFICATION_URL': f'{env("CLIENT_BASE_URL")}/verify-email/',
+    'VERIFICATION_FROM_EMAIL': 'no-reply@percept.mx',
+}
+
 # Custom User Config
 AUTH_USER_MODEL = "users.CustomUser"
+
+# Email Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
